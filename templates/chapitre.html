@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ nom.capitalize() }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>{{ nom.capitalize() }}</h1>
-    <pre style="white-space: pre-wrap;">{{ contenu }}</pre>
+    <div class="chapter-container">
+        <h1>{{ nom.capitalize() }}</h1>
+        <pre style="white-space: pre-wrap;">{{ contenu }}</pre>
+
+        {% if image %}
+            <img src="{{ url_for('static', filename=image) }}" alt="Image du chapitre {{ nom }}">
+        {% endif %}
+    </div>
     <p><a href="/">← Retour à l’accueil</a></p>
 </body>
 </html>
