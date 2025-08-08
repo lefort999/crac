@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def accueil():
-    chapitres = ["chapitre1", "chapitre2", chapitre3"]
+    chapitres = ["chapitre1", "chapitre2", "chapitre3"]
     return render_template("index.html", chapitres=chapitres)
 
 @app.route("/chapitre/<nom>")
@@ -20,5 +20,6 @@ def afficher_chapitre(nom):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+
 
 
