@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bonjour Jacques</title>
+    <title>Bienvenue</title>
 </head>
 <body>
     <h1>Bienvenue sur mon site crac !</h1>
+    <p>Choisissez un prénom :</p>
+    <ul>
+        {% for nom in noms %}
+            <li><a href="/bonjour/{{ nom }}">{{ nom }}</a></li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
