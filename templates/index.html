@@ -5,25 +5,25 @@
     <title>Bienvenue</title>
     <style>
         body {
-            max-width: 1000px;           /* # largeur élargie pour réduire la marge droite */
-            margin: 40px auto;           /* # centrage horizontal automatique */
+            max-width: 1000px;           /* # largeur maximale du contenu */
+            margin: 40px auto;           /* # centrage horizontal */
+            padding-left: 40px;          /* # marge intérieure gauche */
+            padding-right: 40px;         /* # marge intérieure droite */
             font-family: Arial, sans-serif;
             background-color: #fdfcf8;
             color: #333;
             font-size: 1.2em;            /* # taille du texte principale */
             line-height: 1.8;            /* # espacement vertical agréable */
-            /* transform: scale(1.5);    # ← supprimé car provoquait le décalage */
-            /* transform-origin: top left; */
         }
 
         h1 {
-            font-size: 2em;              /* # titre agrandi */
+            font-size: 2em;
             color: #2c3e50;
         }
 
         p {
             margin-bottom: 1em;
-            font-size: 1.1em;            /* # paragraphes lisibles */
+            font-size: 1.1em;
         }
 
         ul {
@@ -32,7 +32,7 @@
         }
 
         li {
-            font-size: 1.2em;            /* # taille des éléments de liste */
+            font-size: 1.2em;
         }
 
         a {
@@ -43,6 +43,23 @@
 
         a:hover {
             text-decoration: underline;
+        }
+
+        /* ✅ Responsive pour petits écrans */
+        @media (max-width: 600px) {
+            body {
+                padding-left: 20px;
+                padding-right: 20px;
+                font-size: 1em;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            li {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
