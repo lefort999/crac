@@ -3,17 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ nom.capitalize() }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            max-width: 800px;
+            margin: 40px auto;
+            font-family: Georgia, serif;
+            font-size: 1.4em;
+            line-height: 1.8;
+            background-color: #fdfcf8;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #2c3e50;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            font-size: 1.3em; /* ← ici on agrandit le texte du chapitre */
+            line-height: 1.6;
+            font-family: inherit; /* ← pour éviter la police "console" */
+        }
+
+        a {
+            text-decoration: none;
+            color: #0077cc;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <div class="chapter-container">
-        <h1>{{ nom.capitalize() }}</h1>
-        <pre style="white-space: pre-wrap;">{{ contenu }}</pre>
-
-        {% if image %}
-            <img src="{{ url_for('static', filename=image) }}" alt="Image du chapitre {{ nom }}">
-        {% endif %}
-    </div>
+    <h1>{{ nom.capitalize() }}</h1>
+    <pre>{{ contenu }}</pre>
     <p><a href="/">← Retour à l’accueil</a></p>
 </body>
 </html>
