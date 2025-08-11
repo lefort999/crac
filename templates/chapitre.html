@@ -12,19 +12,12 @@
             line-height: 1.8;
             background-color: #fdfcf8;
             color: #333;
-            padding-left: 10px; /* ← ajoute un petit espace à gauche */
+            padding-left: 10px;
         }
 
         h1 {
             font-size: 2em;
             color: #2c3e50;
-        }
-
-        pre {
-            white-space: pre-wrap;
-            font-size: 1.3em; /* ← ici on agrandit le texte du chapitre */
-            line-height: 1.6;
-            font-family: inherit; /* ← pour éviter la police "console" */
         }
 
         a {
@@ -35,11 +28,45 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .contenu {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .texte {
+            flex: 2;
+        }
+
+        .image {
+            flex: 1;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            font-size: 1.3em;
+            line-height: 1.6;
+            font-family: inherit;
+        }
     </style>
 </head>
 <body>
     <h1>{{ nom.capitalize() }}</h1>
-    <pre>{{ contenu }}</pre>
-    <p><a href="/">← Retour à l’accueil</a></p>
+    <div class="contenu">
+        <div class="texte">
+            <pre>{{ contenu }}</pre>
+            <p><a href="/">← Retour à l’accueil</a></p>
+        </div>
+        <div class="image">
+            <img src="{{ url_for('static', filename=image) }}" alt="Illustration du chapitre">
+        </div>
+    </div>
 </body>
 </html>
