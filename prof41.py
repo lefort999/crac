@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 import os
 
 app = Flask(__name__)
@@ -16,11 +16,12 @@ def afficher_chapitre(nom):
             contenu = f.read()
     except FileNotFoundError:
         contenu = "Chapitre introuvable."
-    return render_template("chapitre.html", nom=nom, contenu=contenu)
+
+    image = f"{nom}.jpg"  # ← image liée au chapitre
+    return render_template("chapitre.html", nom=nom, contenu=contenu, image=image)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
-
 
 
 
