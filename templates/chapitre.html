@@ -2,53 +2,44 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Chapitre 1</title>
+    <title>{{ nom.capitalize() }}</title>
     <style>
         body {
+            max-width: 1000px;
+            margin: 40px 20px;
             font-family: Georgia, serif;
-            padding: 40px;
+            font-size: 1.3em;
+            line-height: 1.8;
             background-color: #fdfcf8;
             color: #333;
-            max-width: 1000px;
-            margin: auto;
+            padding-left: 10px; /* ← ajoute un petit espace à gauche */
         }
 
-        .contenu {
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        .texte {
-            flex: 2;
-        }
-
-        .image {
-            flex: 1;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ccc;
+        h1 {
+            font-size: 2em;
+            color: #2c3e50;
         }
 
         pre {
             white-space: pre-wrap;
-            font-size: 1.2em;
+            font-size: 1.3em; /* ← ici on agrandit le texte du chapitre */
             line-height: 1.6;
+            font-family: inherit; /* ← pour éviter la police "console" */
+        }
+
+        a {
+            text-decoration: none;
+            color: #0077cc;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>Chapitre 1</h1>
-    <div class="contenu">
-        <div class="texte">
-            <pre>{{ contenu }}</pre>
-        </div>
-        <div class="image">
-            <img src="{{ url_for('static', filename=image) }}" alt="Image du chapitre">
-        </div>
-    </div>
+    <h1>{{ nom.capitalize() }}</h1>
+    <pre>{{ contenu }}</pre>
+    <p><a href="/">← Retour à l’accueil</a></p>
 </body>
 </html>
