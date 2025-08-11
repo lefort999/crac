@@ -1,25 +1,27 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template
 import os
 
 app = Flask(__name__)
 
 @app.route("/")
 def accueil():
-    return "<h1>Bienvenue !</h1><p><a href='/chapitre1'>Lire le chapitre 1</a></p>"
+    chapitres = ["chapitre1", "chapitre2", "chapitre3", "chapitre4"]
+    return render_template("index.html", chapitres=chapitres)
 
-@app.route("/chapitre1")
-def chapitre1():
+@app.route("/chapitre/<nom>")
+def afficher_chapitre(nom):
+    chemin = os.path.join(os.getcwd(), f"{nom}.txt")
     try:
-        with open("chapitre1.txt", "r", encoding="utf-8") as f:
+        with open(chemin, "r", encoding="utf-8") as f:
             contenu = f.read()
     except FileNotFoundError:
         contenu = "Chapitre introuvable."
-
-    image = "chapitre1.jpg"
-    return render_template("chapitre.html", contenu=contenu, image=image)
+    return render_template("chapitre.html", nom=nom, contenu=contenu)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run(host="0.0.0.0", port=10000)
+
+
 
 
 
