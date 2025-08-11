@@ -2,71 +2,19 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>{{ nom.capitalize() }}</title>
+    <title>Chapitre {{ nom }}</title>
     <style>
-        body {
-            max-width: 1000px;
-            margin: 40px 20px;
-            font-family: Georgia, serif;
-            font-size: 1.3em;
-            line-height: 1.8;
-            background-color: #fdfcf8;
-            color: #333;
-            padding-left: 10px;
-        }
-
-        h1 {
-            font-size: 2em;
-            color: #2c3e50;
-        }
-
-        a {
-            text-decoration: none;
-            color: #0077cc;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .contenu {
-            display: flex;
-            align-items: flex-start;
-            gap: 30px;
-        }
-
-        .texte {
-            flex: 2;
-        }
-
-        .image {
-            flex: 1;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ccc;
-        }
-
-        pre {
-            white-space: pre-wrap;
-            font-size: 1.3em;
-            line-height: 1.6;
-            font-family: inherit;
-        }
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        img { max-width: 400px; height: auto; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <h1>{{ nom.capitalize() }}</h1>
-    <div class="contenu">
-        <div class="texte">
-            <pre>{{ contenu }}</pre>
-            <p><a href="/">← Retour à l’accueil</a></p>
-        </div>
-        <div class="image">
-            <img src="{{ url_for('static', filename=image) }}" alt="Illustration du chapitre">
-        </div>
-    </div>
+    <h1>Chapitre : {{ nom }}</h1>
+
+    {% if image %}
+        <img src="{{ url_for('static', filename=image) }}" alt="Image du chapitre">
+    {% else %}
+        <p><em>Aucune image disponible pour ce chapitre.</em></p>
+    {% endif %}
 </body>
 </html>
